@@ -10,7 +10,7 @@ import xmltodict
 import FinanceDataReader as fdr
 from pyowm import OWM
 
-# date
+# date1
 today = datetime.datetime.now(timezone('Asia/Seoul'))
 date1 = today.strftime('%Y-%m-%d')
 date2 = today.strftime('%Y년 %m월 %d일'.encode('unicode-escape').decode()).encode().decode('unicode-escape')

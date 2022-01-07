@@ -7,3 +7,4 @@ soupsieve==2.2.1
 chardet==4.0.0
 idna==2.10
 pytz==2019.3
+xmltodict==0.12.0

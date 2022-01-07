@@ -49,7 +49,7 @@ def getNewsFromRss():
       return newsList
 
 def get_today_weather():
-    API_key = '074741ca033c77160141e6f9133e0a99'
+    API_key = OWM_API_KEY
     owm = OWM(API_key)
     mgr = owm.weather_manager()
     obs = mgr.weather_at_place('Seoul')
@@ -110,18 +110,18 @@ def get_exchange_info():
       end_cny = cny['Close'].values[0]
       end_jpy = jpy['Open'].values[0]
 
-      diff_usd = usd['Change'].values[0]
-      diff_cny = cny['Change'].values[0]
-      diff_jpy = jpy['Change'].values[0]
+      diff_usd = round(usd['Change'].values[0], 4)
+      diff_cny = round(cny['Change'].values[0], 4)
+      diff_jpy = round(jpy['Change'].values[0], 4)
 
       msg = f'''
-            <p> <b>달러(USD)</b> 환율 변동 {diff_usd} </p>
+            <p> <b>달러(USD)</b> 환율 변동 {diff_usd}% </p>
             <p> 시가 : {start_usd} / 종가 : {end_usd} </p>
             <br>
-            <p> <b>위안화(CNY)</b> 환율 변동 {diff_cny} </p>
+            <p> <b>위안화(CNY)</b> 환율 변동 {diff_cny}% </p>
             <p> 시가 : {start_cny} / 종가 : {end_cny} </p>
             <br>
-            <p> <b>엔화(JPY)</b> 환율 변동 {diff_jpy} </p>
+            <p> <b>엔화(JPY)</b> 환율 변동 {diff_jpy}% </p>
             <p> 시가 : {start_jpy} / 종가 : {end_jpy} </p>
             <br>
       '''
@@ -130,7 +130,7 @@ def get_exchange_info():
 
 
 def get_random_img():
-      client_key = '736-WC09y7Igc5nZBQJeIPIKBsZadWszwGyhb_w740w'
+      client_key = UNSPLASH_API_KEY
       URL = 'https://api.unsplash.com/photos/random?client_id='+client_key 
 
       headers = {'Authorization': client_key}
@@ -198,7 +198,7 @@ def post_tistory():
      title, content = make_post()
 
      data = {
-           'access_token': '0ff07acfacc92a82f2e789b6a0836ba7_c038e8b7bc7e084d50e9f1d4cd3a3b6f',
+           'access_token': TISTORY_ACCESS_TOKEN,
            'output': '{output-type}',
            'blogName': 'grandit',
            'title': title,

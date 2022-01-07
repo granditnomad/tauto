@@ -49,7 +49,7 @@ def getNewsFromRss():
       return newsList
 
 def get_today_weather():
-    API_key = OWM_API_KEY
+    API_key = '074741ca033c77160141e6f9133e0a99'
     owm = OWM(API_key)
     mgr = owm.weather_manager()
     obs = mgr.weather_at_place('Seoul')
@@ -130,7 +130,7 @@ def get_exchange_info():
 
 
 def get_random_img():
-      client_key = UNSPLASH_API_KEY
+      client_key = '736-WC09y7Igc5nZBQJeIPIKBsZadWszwGyhb_w740w'
       URL = 'https://api.unsplash.com/photos/random?client_id='+client_key 
 
       headers = {'Authorization': client_key}
@@ -198,7 +198,7 @@ def post_tistory():
      title, content = make_post()
 
      data = {
-           'access_token': TISTORY_ACCESS_TOKEN,
+           'access_token': '0ff07acfacc92a82f2e789b6a0836ba7_c038e8b7bc7e084d50e9f1d4cd3a3b6f',
            'output': '{output-type}',
            'blogName': 'grandit',
            'title': title,
